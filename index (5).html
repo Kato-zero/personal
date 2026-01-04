@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Personal Portfolio — Your Name</title>
+  <meta name="description" content="Personal portfolio of Your Name — web developer/designer. Showcasing projects, services, and contact info." />
+  <meta name="theme-color" content="#0d6efd" />
+
+  <!-- Preconnects for faster CDN/fetch (optional) -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+
+  <!-- Bootstrap CSS (keep version you prefer) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Font Awesome icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
+
+  <!-- Favicon (replace with your favicon path) -->
+  <link rel="icon" href="/favicon.ico" />
+
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --bg-footer: #0f172a;
+      --muted: #6c757d;
+    }
+
+    /* Accessibility focus styles */
+    :focus {
+      outline: 3px solid rgba(13,110,253,.25);
+      outline-offset: 2px;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-top: 70px; /* account for fixed navbar */
+    }
+
+    /* Skip-link */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+    .skip-link:focus {
+      left: 1rem;
+      top: 1rem;
+      width: auto;
+      height: auto;
+      padding: .5rem .75rem;
+      background: #000;
+      color: #fff;
+      z-index: 1050;
+      border-radius: .25rem;
+    }
+
+    header.hero {
+      min-height: calc(100vh - 70px);
+      background: url('https://placehold.co/1600x900') center/cover no-repeat;
+      position: relative;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    header.hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+    }
+    header.hero .content { position: relative; z-index: 2; padding: 80px 0; }
+
+    .section-title { font-weight: 700; margin-bottom: 1rem; }
+    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 999px; margin-bottom: 1.5rem; }
+    .service-card { transition: .25s ease; }
+    .service-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,.08); }
+
+    .portfolio-item img { border-radius: 1rem; object-fit: cover; width: 100%; height: auto; }
+    footer { background: var(--bg-footer); color: #cbd5e1; }
+    .nav-link { cursor: pointer; }
+
+    /* Make sure sections don't hide under the fixed navbar when linked */
+    section[id] { scroll-margin-top: 90px; }
+
+    /* Slightly larger inputs on small screens */
+    .form-control-lg { padding: .75rem 1rem; font-size: 1.05rem; }
+
+    /* Utility: small subtle shadow on cards */
+    .card-subtle { box-shadow: 0 6px 18px rgba(20,20,30, .05); }
+
+    @media (max-width: 575.98px) {
+      header.hero .content { padding: 40px 0; }
+      .display-3 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip to content for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- NAVBAR -->
+  <nav id="top-nav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm" role="navigation" aria-label="Primary navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="primaryNav">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero text-center" role="banner" aria-label="Hero section">
+    <div class="container content">
+      <h1 class="display-3 fw-bold">Hi, I’m <span class="text-primary">Your Name</span></h1>
+      <p class="lead mt-3 mb-4">A short description about who you are and what you do.</p>
+      <a href="#portfolio" class="btn btn-primary btn-lg me-2">View Work</a>
+      <a href="#contact" class="btn btn-outline-light btn-lg">Hire Me</a>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1" role="main">
+    <!-- ABOUT -->
+    <section id="about" class="py-5" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-md-5">
+            <img src="https://placehold.co/500x600" alt="Profile — Your Name" class="img-fluid rounded-4 shadow" loading="lazy" />
+          </div>
+          <div class="col-md-7">
+            <h2 id="about-heading" class="section-title">About Me</h2>
+            <div class="divider" aria-hidden="true"></div>
+            <p>Write a short bio here. Share your experience, passion, and what makes your work unique. Keep it personal and friendly.</p>
+            <p>You can add skills, achievements, or anything that makes visitors trust you.</p>
+            <a href="#contact" class="btn btn-primary mt-2">Let’s Work Together</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="py-5 bg-light" aria-labelledby="services-heading">
+      <div class="container text-center">
+        <h2 id="services-heading" class="section-title">What I Do</h2>
+        <div class="divider mx-auto" aria-hidden="true"></div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="p-4 bg-white rounded-4 service-card h-100 card-subtle" aria-labelledby="service-one">
+              <i class="fa-solid fa-laptop-code fa-2x text-primary mb-3" aria-hidden="true"></i>
+              <h3 id="service-one" class="h5 fw-bold">Service One</h3>
+              <p class="text-muted">Short description of this service and how it helps clients.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="p-4 bg-white rounded-4 service-card h-100 card-subtle" aria-labelledby="service-two">
+              <i class="fa-solid fa-palette fa-2x text-primary mb-3" aria-hidden="true"></i>
+              <h3 id="service-two" class="h5 fw-bold">Service Two</h3>
+              <p class="text-muted">Explain the benefit in simple words so visitors understand quickly.</p>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="p-4 bg-white rounded-4 service-card h-100 card-subtle" aria-labelledby="service-three">
+              <i class="fa-solid fa-bolt fa-2x text-primary mb-3" aria-hidden="true"></i>
+              <h3 id="service-three" class="h5 fw-bold">Service Three</h3>
+              <p class="text-muted">Add something that shows why you’re a good fit for this work.</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="py-5" aria-labelledby="portfolio-heading">
+      <div class="container text-center">
+        <h2 id="portfolio-heading" class="section-title">Recent Work</h2>
+        <div class="divider mx-auto" aria-hidden="true"></div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <figure class="portfolio-item">
+              <img src="https://placehold.co/600x450" alt="Project 1 — screenshot" class="img-fluid" loading="lazy" />
+              <figcaption class="visually-hidden">Project 1 — short description</figcaption>
+            </figure>
+          </div>
+          <div class="col-md-4">
+            <figure class="portfolio-item">
+              <img src="https://placehold.co/600x450" alt="Project 2 — screenshot" class="img-fluid" loading="lazy" />
+              <figcaption class="visually-hidden">Project 2 — short description</figcaption>
+            </figure>
+          </div>
+          <div class="col-md-4">
+            <figure class="portfolio-item">
+              <img src="https://placehold.co/600x450" alt="Project 3 — screenshot" class="img-fluid" loading="lazy" />
+              <figcaption class="visually-hidden">Project 3 — short description</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="py-5 bg-light" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h2 id="contact-heading" class="section-title text-center">Get In Touch</h2>
+            <div class="divider mx-auto mb-4" aria-hidden="true"></div>
+
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="name">Your Name</label>
+                  <input id="name" name="name" type="text" class="form-control form-control-lg" placeholder="Your Name" required aria-required="true" />
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="visually-hidden" for="email">Email Address</label>
+                  <input id="email" name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required aria-required="true" />
+                  <div class="invalid-feedback">Please enter a valid email address.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="visually-hidden" for="message">Message</label>
+                  <textarea id="message" name="message" class="form-control form-control-lg" rows="5" placeholder="Message" required aria-required="true"></textarea>
+                  <div class="invalid-feedback">Please enter a message.</div>
+                </div>
+              </div>
+
+              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button id="submitBtn" type="submit" class="btn btn-primary btn-lg mt-4">Send Message</button>
+                <div id="formStatus" role="status" aria-live="polite" class="align-self-center visually-hidden mt-3">Submitting...</div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-4 text-center" role="contentinfo">
+    <div class="container small">© 2026 — Your Name. All rights reserved.</div>
+  </footer>
+
+  <!-- Bootstrap JS bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Smooth scrolling with offset for fixed navbar when using hash links
+    (function () {
+      const OFFSET = document.querySelector('.navbar')?.offsetHeight || 70;
+
+      // Intercept clicks on internal anchor links to account for fixed navbar offset
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (!targetId || targetId === '#') return;
+          const target = document.querySelector(targetId);
+          if (target) {
+            e.preventDefault();
+            const top = target.getBoundingClientRect().top + window.pageYOffset - OFFSET + 8;
+            window.scrollTo({ top, behavior: 'smooth' });
+            // Collapse navbar when link clicked (mobile)
+            const bsCollapse = document.querySelector('.navbar-collapse');
+            if (bsCollapse && bsCollapse.classList.contains('show')) {
+              new bootstrap.Collapse(bsCollapse).hide();
+            }
+          }
+        });
+      });
+
+      // Basic scrollspy-like active link highlight (lightweight)
+      const sections = Array.from(document.querySelectorAll('main section[id]'));
+      const navLinks = Array.from(document.querySelectorAll('#primaryNav .nav-link'));
+
+      function onScroll() {
+        const fromTop = window.scrollY + OFFSET + 10;
+        let current = sections.find(sec => {
+          const top = sec.offsetTop;
+          const bottom = top + sec.offsetHeight;
+          return fromTop >= top && fromTop < bottom;
+        });
+
+        navLinks.forEach(link => link.classList.remove('active'));
+        if (current) {
+          const activeLink = document.querySelector('#primaryNav a[href="#' + current.id + '"]');
+          if (activeLink) activeLink.classList.add('active');
+        } else {
+          // If no section matched (top of page), keep first link inactive or set it as needed
+        }
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll);
+      onScroll();
+
+      // Simple contact form handling (client-side demo)
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('formStatus');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Basic validation
+        if (!form.checkValidity()) {
+          form.classList.add('was-validated');
+          return;
+        }
+        // Simulate submission; replace with real API call / action as needed
+        status.classList.remove('visually-hidden');
+        status.textContent = 'Sending...';
+        document.getElementById('submitBtn').setAttribute('disabled', 'disabled');
+
+        setTimeout(() => {
+          status.textContent = 'Message sent — thanks!';
+          status.classList.add('text-success');
+          document.getElementById('submitBtn').removeAttribute('disabled');
+          form.reset();
+          form.classList.remove('was-validated');
+          // hide status after a few seconds
+          setTimeout(() => {
+            status.classList.add('visually-hidden');
+            status.classList.remove('text-success');
+          }, 3000);
+        }, 900); // simulate network delay
+      });
+    })();
+  </script>
+</body>
+</html>
