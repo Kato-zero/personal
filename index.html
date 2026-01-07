@@ -259,49 +259,41 @@
 </section>
 
     <!-- CONTACT / BOOKING -->
-    <section id="contact" class="bg-amber-600 text-white py-16">
-      <div class="max-w-3xl mx-auto px-6">
-        <h2 class="text-2xl font-bold mb-6">Book Your Stay</h2>
+   <script>
+const bookingForm = document.getElementById('bookingForm');
+const bookingStatus = document.getElementById('bookingStatus');
 
-        <form id="bookingForm" class="bg-white text-gray-800 p-6 rounded-xl space-y-4" novalidate>
-          <div>
-            <label for="fullName" class="block text-sm font-medium mb-1">Full name</label>
-            <input id="fullName" name="fullName" type="text" required class="w-full border p-2 rounded" placeholder="Jane Doe" />
-          </div>
+bookingForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  bookingStatus.classList.remove('sr-only');
+  bookingStatus.textContent = 'Submitting...';
 
-          <div>
-            <label for="contact" class="block text-sm font-medium mb-1">Phone or email</label>
-            <input id="contact" name="contact" inputmode="tel" type="text" required class="w-full border p-2 rounded" placeholder="+260 96X XXX XXX or jane@example.com" />
-            <p id="contactHelp" class="text-xs text-gray-500 mt-1">We will contact you to confirm your booking.</p>
-          </div>
+  const data = {
+    fullName: bookingForm.fullName.value,
+    contact: bookingForm.contact.value,
+    checkin: bookingForm.checkin.value,
+    checkout: bookingForm.checkout.value,
+    roomType: bookingForm.roomType.value
+  };
 
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label for="checkin" class="block text-sm font-medium mb-1">Check-in</label>
-              <input id="checkin" name="checkin" type="date" required class="w-full border p-2 rounded" />
-            </div>
-            <div>
-              <label for="checkout" class="block text-sm font-medium mb-1">Check-out</label>
-              <input id="checkout" name="checkout" type="date" required class="w-full border p-2 rounded" />
-            </div>
-          </div>
+  try {
+    await fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
+    });
 
-          <div>
-            <label for="roomType" class="block text-sm font-medium mb-1">Room type</label>
-            <select id="roomType" name="roomType" class="w-full border p-2 rounded">
-              <option value="standard">Standard Room ZMW 350</option>
-               <option value="standard">Standard Room ZMW 400</option>
-              <option value="double">Double Room ZMW 450</option>
-            </select>
-          </div>
-
-          <button id="submitBtn" type="submit" class="w-full bg-amber-600 text-white py-3 rounded hover:bg-amber-700">Submit Booking</button>
-
-          <div id="bookingStatus" class="sr-only" aria-live="polite"></div>
-        </form>
-      </div>
-    </section>
-  </main>
+    bookingStatus.textContent =
+      "Thank you! Your booking was received — we’ll contact you shortly.";
+    bookingForm.reset();
+  } catch (err) {
+    bookingStatus.textContent =
+      "Something went wrong — please try again or call us.";
+  }
+});
+</script>
+    </main>
 
   <!-- FOOTER -->
   <footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
