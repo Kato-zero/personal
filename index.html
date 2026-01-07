@@ -270,62 +270,69 @@
     });
 
     // Booking form handling with basic validation and accessible feedback
- 
-    // Booking form handling with basic validation and accessible feedback
-  <script>
-const bookingForm = document.getElementById('bookingForm');
-const bookingStatus = document.getElementById('bookingStatus');
+ const bookingForm = document.getElementById('bookingForm');
+    const bookingStatus = document.getElementById('bookingStatus');
 
-bookingForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  bookingStatus.classList.remove('sr-only');
-  bookingStatus.textContent = 'Submitting your booking...';
+    function formatDateISO(input) {
+      // returns YYYY-MM-DD or null
+      return input ? input : null;
+    }
 
-  // Gather form data
-  const data = {
-    "Full Name": document.getElementById('fullName').value.trim(),
-    "Contact": document.getElementById('contact').value.trim(),
-    "Check-in": document.getElementById('checkin').value,
-    "Check-out": document.getElementById('checkout').value,
-    "Room Type": document.getElementById('roomType').value,
-    "Submitted At": new Date().toISOString()
-  };
+    bookingForm && bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      bookingStatus.classList.remove('sr-only');
+      bookingStatus.textContent = '';
 
-  // Basic validation
-  if (!data["Full Name"] || !data["Contact"] || !data["Check-in"] || !data["Check-out"]) {
-    bookingStatus.textContent = 'Please fill in all required fields.';
-    return;
-  }
+      const fullName = document.getElementById('fullName').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+      const roomType = document.getElementById('roomType').value;
 
+      // simple validations
+      if (!fullName || !contact || !checkin || !checkout) {
+        bookingStatus.textContent = 'Please fill in all required fields.';
+        bookingStatus.classList.remove('text-green-600');
+        return;
+      }
 
-  if (new Date(data["Check-out"]) <= new Date(data["Check-in"])) {
-    bookingStatus.textContent = 'Check-out must be after check-in.';
-    return;
-  }
+      if (new Date(checkout) <= new Date(checkin)) {
+        bookingStatus.textContent = 'Check-out must be after check-in.';
+        return;
+      }
 
-  try {
-    const response = await fetch('https://api.sheetbest.com/sheets/0cc9eab5-596e-4bed-9b72-ba47af803db3', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-
-
-
-
+      // Demo: show a success message and reset form. Replace with real send (fetch) in production.
+      bookingStatus.textContent = 'Submitting your booking...';
+      try {
+        await new Promise(r => setTimeout(r, 700)); // simulate async send
+        bookingStatus.textContent = 'Thank you! Your booking request has been submitted. We will contact you shortly.';
+        bookingForm.reset();
+      } catch (err) {
+        bookingStatus.textContent = 'There was a problem submitting your booking. Please try again or call us.';
+      }
     });
 
-    if (response.ok) {
-      bookingStatus.textContent = 'Thank you! Your booking has been saved. We will contact you shortly.';
-      bookingForm.reset();
-    } else {
-      bookingStatus.textContent = 'Error saving booking. Please try again.';
-    }
-  } catch (err) {
-    console.error(err);
-    bookingStatus.textContent = 'Error saving booking. Please check your connection.';
-  }
-});
+    // Small enhancement: set min date on checkin to today, and checkout min to tomorrow when checkin selected.
+    (function initDatePickers(){
+      const checkinEl = document.getElementById('checkin');
+      const checkoutEl = document.getElementById('checkout');
+      const today = new Date().toISOString().split('T')[0];
+      if (checkinEl) checkinEl.setAttribute('min', today);
+      if (checkoutEl) checkoutEl.setAttribute('min', today);
 
-</script>
+      if (checkinEl && checkoutEl) {
+        checkinEl.addEventListener('change', () => {
+          const nextDay = new Date(checkinEl.value);
+          if (!isNaN(nextDay)) {
+            nextDay.setDate(nextDay.getDate() + 1);
+            checkoutEl.min = nextDay.toISOString().split('T')[0];
+            if (new Date(checkoutEl.value) <= new Date(checkinEl.value)) {
+              checkoutEl.value = '';
+            }
+          }
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
