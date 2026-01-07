@@ -270,6 +270,8 @@
     });
 
     // Booking form handling with basic validation and accessible feedback
+ 
+    // Booking form handling with basic validation and accessible feedback
   <script>
 const bookingForm = document.getElementById('bookingForm');
 const bookingStatus = document.getElementById('bookingStatus');
@@ -295,6 +297,7 @@ bookingForm.addEventListener('submit', async (e) => {
     return;
   }
 
+
   if (new Date(data["Check-out"]) <= new Date(data["Check-in"])) {
     bookingStatus.textContent = 'Check-out must be after check-in.';
     return;
@@ -305,6 +308,10 @@ bookingForm.addEventListener('submit', async (e) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
+
+
+
+
     });
 
     if (response.ok) {
@@ -318,6 +325,7 @@ bookingForm.addEventListener('submit', async (e) => {
     bookingStatus.textContent = 'Error saving booking. Please check your connection.';
   }
 });
+
 </script>
 </body>
 </html>
