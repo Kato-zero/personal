@@ -2,346 +2,336 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <title>Starlet Leisure Life Guesthouse | Livingstone</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MARK CHIBALA</title>
-  <meta name="description" content="Personal portfolio of Your Name — web developer/designer. Showcasing projects, services, and contact info." />
-  <meta name="theme-color" content="#0d6efd" />
+  <meta name="description" content="Comfortable, affordable guesthouse in Livingstone — close to town and Victoria Falls. Book rooms, get tour help and enjoy friendly 24/7 service." />
+  <link rel="canonical" href="https://your-website.example/" />
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Starlet Leisure Life Guesthouse | Livingstone" />
+  <meta property="og:description" content="Comfortable, affordable guesthouse in Livingstone — close to town and Victoria Falls." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop&w=1200&h=630" />
+  <meta property="og:url" content="https://your-website.example/" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Preconnects for faster CDN/fetch (optional) -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 
-  <!-- Bootstrap CSS (keep version you prefer) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Font Awesome icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="" crossorigin="anonymous" />
-
-  <!-- Favicon (replace with your favicon path) -->
-  <link rel="icon" href="/favicon.ico" />
+  <!-- Tailwind CDN (for prototype/demo). For production consider building Tailwind into CSS) -->
+  <script src="https://cdn.tailwindcss.com" defer></script>
+  <!-- Lucide icons (deferred) -->
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <style>
-    :root {
-      --primary: #0d6efd;
-      --bg-footer: #0f172a;
-      --muted: #6c757d;
-    }
-
-    /* Accessibility focus styles */
-    :focus {
-      outline: 3px solid rgba(13,110,253,.25);
-      outline-offset: 2px;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      scroll-behavior: smooth;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      padding-top: 70px; /* account for fixed navbar */
-    }
-
-    /* Skip-link */
-    .skip-link {
-      position: absolute;
-      left: -999px;
-      top: auto;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-    }
-    .skip-link:focus {
-      left: 1rem;
-      top: 1rem;
-      width: auto;
-      height: auto;
-      padding: .5rem .75rem;
-      background: #000;
-      color: #fff;
-      z-index: 1050;
-      border-radius: .25rem;
-    }
-
-    header.hero {
-      min-height: calc(100vh - 70px);
-      background: url('https://i.postimg.cc/BbGHfmVd/1600w-iy-UPvz-In-WD8.jpg') center/cover no-repeat;
-      position: relative;
-      color: #fff;
-      display: flex;
-      align-items: center;
-    }
-    header.hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,.55);
-    }
-    header.hero .content { position: relative; z-index: 2; padding: 80px 0; }
-
-    .section-title { font-weight: 700; margin-bottom: 1rem; }
-    .divider { width: 60px; height: 4px; background: var(--primary); border-radius: 999px; margin-bottom: 1.5rem; }
-    .service-card { transition: .25s ease; }
-    .service-card:hover { transform: translateY(-6px); box-shadow: 0 15px 40px rgba(0,0,0,.08); }
-
-    .portfolio-item img { border-radius: 1rem; object-fit: cover; width: 100%; height: auto; }
-    footer { background: var(--bg-footer); color: #cbd5e1; }
-    .nav-link { cursor: pointer; }
-
-    /* Make sure sections don't hide under the fixed navbar when linked */
-    section[id] { scroll-margin-top: 90px; }
-
-    /* Slightly larger inputs on small screens */
-    .form-control-lg { padding: .75rem 1rem; font-size: 1.05rem; }
-
-    /* Utility: small subtle shadow on cards */
-    .card-subtle { box-shadow: 0 6px 18px rgba(20,20,30, .05); }
-
-    @media (max-width: 575.98px) {
-      header.hero .content { padding: 40px 0; }
-      .display-3 { font-size: 1.8rem; }
-    }
+    html { scroll-behavior: smooth; }
+    /* subtle focus rings for keyboard users */
+    :focus { outline: none; }
+    :focus-visible { outline: 3px solid rgba(250, 204, 21, 0.95); outline-offset: 2px; border-radius: 6px; }
+    /* Keep hero at least full viewport minus header height on small screens */
+    .hero-min { min-height: calc(100vh - 72px); }
+    /* gentle transition for hero text overlay */
+    .hero-overlay { transition: background-color .2s ease; }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    "name": "Starlet Leisure Life Guesthouse",
+    "image": [
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
+    ],
+    "telephone": "+260XXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "30 Twafwane Street, Off Obote Avenue",
+      "addressLocality": "Livingstone",
+      "addressCountry": "ZM"
+    },
+    "description": "Comfortable, affordable guesthouse near Victoria Falls with friendly service and tour assistance."
+  }
+  </script>
 </head>
 
-<body>
-  <!-- Skip to content for keyboard users -->
-  <a class="skip-link" href="#main">Skip to main content</a>
+<body class="bg-gray-50 text-gray-800 antialiased">
+  <!-- Skip link -->
+  <a class="sr-only focus:not-sr-only absolute top-2 left-2 bg-amber-600 text-white px-3 py-2 rounded z-50" href="#main">Skip to main content</a>
 
   <!-- NAVBAR -->
-  <nav id="top-nav" class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm" role="navigation" aria-label="Primary navigation">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">My Portfolio</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navMenu">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="primaryNav">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
+  <header class="fixed w-full bg-white/90 backdrop-blur shadow z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <div class="flex items-center gap-4">
+        <a href="/" class="font-bold text-lg text-amber-600">Starlet Leisure Life</a>
+        <span class="hidden sm:inline text-sm text-gray-600">Guesthouse • Livingstone</span>
       </div>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <header class="hero text-center" role="banner" aria-label="Hero section">
-    <div class="container content">
-      <h1 class="display-3 fw-bold">Hi, I’m <span class="text-primary">MARK CHIBALA</span></h1>
-      <p class="lead mt-3 mb-4">A short description about who you are and what you do.</p>
-      <a href="#portfolio" class="btn btn-primary btn-lg me-2">View Work</a>
-      <a href="#contact" class="btn btn-outline-light btn-lg">Hire Me</a>
+      <nav aria-label="Primary" class="flex items-center gap-4">
+        <button id="mobileMenuButton" aria-controls="primaryNav" aria-expanded="false" class="md:hidden p-2 rounded hover:bg-gray-100 focus-visible:ring-amber-300">
+          <i data-lucide="menu" aria-hidden="true"></i>
+          <span class="sr-only">Open menu</span>
+        </button>
+
+        <ul id="primaryNav" class="hidden md:flex gap-6 items-center" role="menubar">
+          <li role="none"><a role="menuitem" href="#about" class="hover:underline">About</a></li>
+          <li role="none"><a role="menuitem" href="#rooms" class="hover:underline">Rooms</a></li>
+          <li role="none"><a role="menuitem" href="#amenities" class="hover:underline">Amenities</a></li>
+          <li role="none"><a role="menuitem" href="#gallery" class="hover:underline">Gallery</a></li>
+          <li role="none"><a role="menuitem" href="#contact" class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu" class="hidden md:hidden border-t bg-white" aria-hidden="true">
+      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col">
+        <a href="#about" class="block px-4 py-3">About</a>
+        <a href="#rooms" class="block px-4 py-3">Rooms</a>
+        <a href="#amenities" class="block px-4 py-3">Amenities</a>
+        <a href="#gallery" class="block px-4 py-3">Gallery</a>
+        <a href="#contact" class="block px-4 py-3 text-amber-600 font-semibold">Book Now</a>
+      </div>
     </div>
   </header>
 
-  <main id="main" tabindex="-1" role="main">
+  <main id="main" class="pt-20">
+    <!-- HERO -->
+    <section class="relative hero-min flex items-center justify-center text-white bg-black/5">
+      <!-- background image placed as <img> for better loading & accessibility control -->
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop&w=1600&h=1000"
+           alt="Comfortable guesthouse room with warm lighting"
+           class="absolute inset-0 w-full h-full object-cover"
+           style="filter:brightness(.5) saturate(.95)"
+           loading="eager" />
+
+      <div class="relative z-10 bg-black/60 p-8 rounded-xl text-center max-w-xl mx-4 hero-overlay">
+        <h1 class="text-2xl md:text-4xl font-bold mb-3">Comfort Meets Convenience</h1>
+        <p class="mb-4 text-sm md:text-base leading-relaxed">
+          Affordable guesthouse in Livingstone<br />
+          <span class="inline-block mt-1">📍 30 Twafwane Street, Off Obote Avenue</span>
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-3 justify-center">
+          <a href="#contact" class="bg-amber-600 px-6 py-3 rounded hover:bg-amber-700 focus-visible:ring-4 focus-visible:ring-amber-300">Book Your Stay</a>
+          <a href="tel:+260XXXXXXXXX" class="border border-white/40 px-6 py-3 rounded hover:bg-white hover:text-black focus-visible:ring-4 focus-visible:ring-white/50">Call Us</a>
+          <a href="https://wa.me/260XXXXXXXXX" class="border border-white/40 px-6 py-3 rounded hover:bg-green-600 focus-visible:ring-4 focus-visible:ring-white/30">WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
-    <section id="about" class="py-5" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-md-5">
-            <img src="https://i.postimg.cc/PqhLSC04/Whats-App-Image-2026-01-04-at-8-46-05-AM.jpg" alt="Profile — Your Name" class="img-fluid rounded-4 shadow" loading="lazy" />
-          </div>
-          <div class="col-md-7">
-            <h2 id="about-heading" class="section-title">About Me</h2>
-            <div class="divider" aria-hidden="true"></div>
-            <p>Write a short bio here. Share your experience, passion, and what makes your work unique. Keep it personal and friendly.</p>
-            <p>You can add skills, achievements, or anything that makes visitors trust you.</p>
-            <a href="#contact" class="btn btn-primary mt-2">Let’s Work Together</a>
-          </div>
+    <section id="about" class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-2xl font-bold text-amber-600 mb-4">About Us</h2>
+      <p class="leading-relaxed max-w-3xl">
+        Starlet Leisure Life Guesthouse offers clean, comfortable and peaceful
+        accommodation for travelers visiting Livingstone. Located near town
+        and a short drive from Victoria Falls, we are ideal for tourists,
+        business travelers and backpackers.
+      </p>
+    </section>
+
+    <!-- WHY US -->
+    <section class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+        <article class="p-6 rounded-xl shadow" aria-labelledby="why-location">
+          <i data-lucide="map-pin" class="mb-3 text-amber-600" aria-hidden="true"></i>
+          <h3 id="why-location" class="font-semibold mb-2">Great Location</h3>
+          <p class="text-sm">Minutes from town & close to Victoria Falls.</p>
+        </article>
+
+        <article class="p-6 rounded-xl shadow" aria-labelledby="why-rooms">
+          <i data-lucide="bed-double" class="mb-3 text-amber-600" aria-hidden="true"></i>
+          <h3 id="why-rooms" class="font-semibold mb-2">Comfortable Rooms</h3>
+          <p class="text-sm">Clean rooms with private bathrooms.</p>
+        </article>
+
+        <article class="p-6 rounded-xl shadow" aria-labelledby="why-service">
+          <i data-lucide="users" class="mb-3 text-amber-600" aria-hidden="true"></i>
+          <h3 id="why-service" class="font-semibold mb-2">Friendly Service</h3>
+          <p class="text-sm">24/7 front desk and tour assistance.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROOMS -->
+    <section id="rooms" class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-2xl font-bold text-amber-600 mb-8">Rooms & Prices</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-xl shadow p-6">
+          <h3 class="font-semibold mb-2">Standard Room</h3>
+          <p class="text-sm mb-3">Private bathroom • Breakfast included</p>
+          <span class="font-bold text-amber-600">From ZMW XXX / night</span>
+        </div>
+
+        <div class="bg-white rounded-xl shadow p-6">
+          <h3 class="font-semibold mb-2">Double Room</h3>
+          <p class="text-sm mb-3">Ideal for couples • Spacious</p>
+          <span class="font-bold text-amber-600">From ZMW XXX / night</span>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="py-5 bg-light" aria-labelledby="services-heading">
-      <div class="container text-center">
-        <h2 id="services-heading" class="section-title">What I Do</h2>
-        <div class="divider mx-auto" aria-hidden="true"></div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <article class="p-4 bg-white rounded-4 service-card h-100 card-subtle" aria-labelledby="service-one">
-              <i class="fa-solid fa-laptop-code fa-2x text-primary mb-3" aria-hidden="true"></i>
-              <h3 id="service-one" class="h5 fw-bold">Service One</h3>
-              <p class="text-muted">Short description of this service and how it helps clients.</p>
-            </article>
-          </div>
-          <div class="col-md-4">
-            <article class="p-4 bg-white rounded-4 service-card h-100 card-subtle" aria-labelledby="service-two">
-              <i class="fa-solid fa-palette fa-2x text-primary mb-3" aria-hidden="true"></i>
-              <h3 id="service-two" class="h5 fw-bold">Service Two</h3>
-              <p class="text-muted">Explain the benefit in simple words so visitors understand quickly.</p>
-            </article>
-          </div>
-          <div class="col-md-4">
-            <article class="p-4 bg-white rounded-4 service-card h-100 card-subtle" aria-labelledby="service-three">
-              <i class="fa-solid fa-bolt fa-2x text-primary mb-3" aria-hidden="true"></i>
-              <h3 id="service-three" class="h5 fw-bold">Service Three</h3>
-              <p class="text-muted">Add something that shows why you’re a good fit for this work.</p>
-            </article>
-          </div>
-        </div>
+    <!-- AMENITIES -->
+    <section id="amenities" class="bg-white py-16">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-2xl font-bold text-amber-600 mb-6">Amenities</h2>
+        <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+          <li>✔ Free Wi-Fi</li>
+          <li>✔ Free Parking</li>
+          <li>✔ Airport Shuttle</li>
+          <li>✔ Breakfast Included</li>
+          <li>✔ Tour Desk</li>
+          <li>✔ 24-Hour Reception</li>
+          <li>✔ Secure Premises</li>
+          <li>✔ Laundry Service</li>
+        </ul>
       </div>
     </section>
 
-    <!-- PORTFOLIO -->
-    <section id="portfolio" class="py-5" aria-labelledby="portfolio-heading">
-      <div class="container text-center">
-        <h2 id="portfolio-heading" class="section-title">Recent Work</h2>
-        <div class="divider mx-auto" aria-hidden="true"></div>
-
-        <div class="row g-4">
-          <div class="col-md-4">
-            <figure class="portfolio-item">
-              <img src="https://placehold.co/600x450" alt="Project 1 — screenshot" class="img-fluid" loading="lazy" />
-              <figcaption class="visually-hidden">Project 1 — short description</figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4">
-            <figure class="portfolio-item">
-              <img src="https://placehold.co/600x450" alt="Project 2 — screenshot" class="img-fluid" loading="lazy" />
-              <figcaption class="visually-hidden">Project 2 — short description</figcaption>
-            </figure>
-          </div>
-          <div class="col-md-4">
-            <figure class="portfolio-item">
-              <img src="https://placehold.co/600x450" alt="Project 3 — screenshot" class="img-fluid" loading="lazy" />
-              <figcaption class="visually-hidden">Project 3 — short description</figcaption>
-            </figure>
-          </div>
-        </div>
+    <!-- GALLERY -->
+    <section id="gallery" class="max-w-7xl mx-auto px-6 py-16">
+      <h2 class="text-2xl font-bold text-amber-600 mb-6">Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1501117716987-c8e1ecb2106c?q=80&auto=format&fit=crop&w=800&h=600" alt="Cozy seating area at the guesthouse" loading="lazy">
+        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&auto=format&fit=crop&w=800&h=600" alt="Well appointed room with bed" loading="lazy">
+        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&auto=format&fit=crop&w=800&h=600" alt="Garden and outdoor seating" loading="lazy">
+        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&auto=format&fit=crop&w=800&h=600" alt="Dining area" loading="lazy">
       </div>
     </section>
 
-    <!-- CONTACT -->
-    <section id="contact" class="py-5 bg-light" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <h2 id="contact-heading" class="section-title text-center">Get In Touch</h2>
-            <div class="divider mx-auto mb-4" aria-hidden="true"></div>
+    <!-- CONTACT / BOOKING -->
+    <section id="contact" class="bg-amber-600 text-white py-16">
+      <div class="max-w-3xl mx-auto px-6">
+        <h2 class="text-2xl font-bold mb-6">Book Your Stay</h2>
 
-            <form id="contactForm" novalidate>
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="visually-hidden" for="name">Your Name</label>
-                  <input id="name" name="name" type="text" class="form-control form-control-lg" placeholder="Your Name" required aria-required="true" />
-                  <div class="invalid-feedback">Please enter your name.</div>
-                </div>
-
-                <div class="col-md-6">
-                  <label class="visually-hidden" for="email">Email Address</label>
-                  <input id="email" name="email" type="email" class="form-control form-control-lg" placeholder="Email Address" required aria-required="true" />
-                  <div class="invalid-feedback">Please enter a valid email address.</div>
-                </div>
-
-                <div class="col-12">
-                  <label class="visually-hidden" for="message">Message</label>
-                  <textarea id="message" name="message" class="form-control form-control-lg" rows="5" placeholder="Message" required aria-required="true"></textarea>
-                  <div class="invalid-feedback">Please enter a message.</div>
-                </div>
-              </div>
-
-              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                <button id="submitBtn" type="submit" class="btn btn-primary btn-lg mt-4">Send Message</button>
-                <div id="formStatus" role="status" aria-live="polite" class="align-self-center visually-hidden mt-3">Submitting...</div>
-              </div>
-            </form>
-
+        <form id="bookingForm" class="bg-white text-gray-800 p-6 rounded-xl space-y-4" novalidate>
+          <div>
+            <label for="fullName" class="block text-sm font-medium mb-1">Full name</label>
+            <input id="fullName" name="fullName" type="text" required class="w-full border p-2 rounded" placeholder="Jane Doe" />
           </div>
-        </div>
+
+          <div>
+            <label for="contact" class="block text-sm font-medium mb-1">Phone or email</label>
+            <input id="contact" name="contact" inputmode="tel" type="text" required class="w-full border p-2 rounded" placeholder="+260 96X XXX XXX or jane@example.com" />
+            <p id="contactHelp" class="text-xs text-gray-500 mt-1">We will contact you to confirm your booking.</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label for="checkin" class="block text-sm font-medium mb-1">Check-in</label>
+              <input id="checkin" name="checkin" type="date" required class="w-full border p-2 rounded" />
+            </div>
+            <div>
+              <label for="checkout" class="block text-sm font-medium mb-1">Check-out</label>
+              <input id="checkout" name="checkout" type="date" required class="w-full border p-2 rounded" />
+            </div>
+          </div>
+
+          <div>
+            <label for="roomType" class="block text-sm font-medium mb-1">Room type</label>
+            <select id="roomType" name="roomType" class="w-full border p-2 rounded">
+              <option value="standard">Standard Room</option>
+              <option value="double">Double Room</option>
+            </select>
+          </div>
+
+          <button id="submitBtn" type="submit" class="w-full bg-amber-600 text-white py-3 rounded hover:bg-amber-700">Submit Booking</button>
+
+          <div id="bookingStatus" class="sr-only" aria-live="polite"></div>
+        </form>
       </div>
     </section>
   </main>
 
   <!-- FOOTER -->
-  <footer class="py-4 text-center" role="contentinfo">
-    <div class="container small">© 2026 — Your Name. All rights reserved.</div>
+  <footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
+    © <span id="year"></span> Starlet Leisure Life Guesthouse – Livingstone, Zambia
   </footer>
 
-  <!-- Bootstrap JS bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // Smooth scrolling with offset for fixed navbar when using hash links
-    (function () {
-      const OFFSET = document.querySelector('.navbar')?.offsetHeight || 70;
+    // Wait for icons to be available
+    window.addEventListener('load', () => {
+      if (window.lucide && typeof lucide.createIcons === 'function') {
+        lucide.createIcons();
+      }
+      // Update copyright year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
 
-      // Intercept clicks on internal anchor links to account for fixed navbar offset
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', function (e) {
-          const targetId = this.getAttribute('href');
-          if (!targetId || targetId === '#') return;
-          const target = document.querySelector(targetId);
-          if (target) {
-            e.preventDefault();
-            const top = target.getBoundingClientRect().top + window.pageYOffset - OFFSET + 8;
-            window.scrollTo({ top, behavior: 'smooth' });
-            // Collapse navbar when link clicked (mobile)
-            const bsCollapse = document.querySelector('.navbar-collapse');
-            if (bsCollapse && bsCollapse.classList.contains('show')) {
-              new bootstrap.Collapse(bsCollapse).hide();
+    // Mobile menu toggle with aria
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuButton && mobileMenuButton.addEventListener('click', () => {
+      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+      mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.hidden = expanded;
+      mobileMenu.classList.toggle('hidden');
+      mobileMenu.setAttribute('aria-hidden', String(expanded));
+    });
+
+    // Booking form handling with basic validation and accessible feedback
+    const bookingForm = document.getElementById('bookingForm');
+    const bookingStatus = document.getElementById('bookingStatus');
+
+    function formatDateISO(input) {
+      // returns YYYY-MM-DD or null
+      return input ? input : null;
+    }
+
+    bookingForm && bookingForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      bookingStatus.classList.remove('sr-only');
+      bookingStatus.textContent = '';
+
+      const fullName = document.getElementById('fullName').value.trim();
+      const contact = document.getElementById('contact').value.trim();
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+      const roomType = document.getElementById('roomType').value;
+
+      // simple validations
+      if (!fullName || !contact || !checkin || !checkout) {
+        bookingStatus.textContent = 'Please fill in all required fields.';
+        bookingStatus.classList.remove('text-green-600');
+        return;
+      }
+
+      if (new Date(checkout) <= new Date(checkin)) {
+        bookingStatus.textContent = 'Check-out must be after check-in.';
+        return;
+      }
+
+      // Demo: show a success message and reset form. Replace with real send (fetch) in production.
+      bookingStatus.textContent = 'Submitting your booking...';
+      try {
+        await new Promise(r => setTimeout(r, 700)); // simulate async send
+        bookingStatus.textContent = 'Thank you! Your booking request has been submitted. We will contact you shortly.';
+        bookingForm.reset();
+      } catch (err) {
+        bookingStatus.textContent = 'There was a problem submitting your booking. Please try again or call us.';
+      }
+    });
+
+    // Small enhancement: set min date on checkin to today, and checkout min to tomorrow when checkin selected.
+    (function initDatePickers(){
+      const checkinEl = document.getElementById('checkin');
+      const checkoutEl = document.getElementById('checkout');
+      const today = new Date().toISOString().split('T')[0];
+      if (checkinEl) checkinEl.setAttribute('min', today);
+      if (checkoutEl) checkoutEl.setAttribute('min', today);
+
+      if (checkinEl && checkoutEl) {
+        checkinEl.addEventListener('change', () => {
+          const nextDay = new Date(checkinEl.value);
+          if (!isNaN(nextDay)) {
+            nextDay.setDate(nextDay.getDate() + 1);
+            checkoutEl.min = nextDay.toISOString().split('T')[0];
+            if (new Date(checkoutEl.value) <= new Date(checkinEl.value)) {
+              checkoutEl.value = '';
             }
           }
         });
-      });
-
-      // Basic scrollspy-like active link highlight (lightweight)
-      const sections = Array.from(document.querySelectorAll('main section[id]'));
-      const navLinks = Array.from(document.querySelectorAll('#primaryNav .nav-link'));
-
-      function onScroll() {
-        const fromTop = window.scrollY + OFFSET + 10;
-        let current = sections.find(sec => {
-          const top = sec.offsetTop;
-          const bottom = top + sec.offsetHeight;
-          return fromTop >= top && fromTop < bottom;
-        });
-
-        navLinks.forEach(link => link.classList.remove('active'));
-        if (current) {
-          const activeLink = document.querySelector('#primaryNav a[href="#' + current.id + '"]');
-          if (activeLink) activeLink.classList.add('active');
-        } else {
-          // If no section matched (top of page), keep first link inactive or set it as needed
-        }
       }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', onScroll);
-      onScroll();
-
-      // Simple contact form handling (client-side demo)
-      const form = document.getElementById('contactForm');
-      const status = document.getElementById('formStatus');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        // Basic validation
-        if (!form.checkValidity()) {
-          form.classList.add('was-validated');
-          return;
-        }
-        // Simulate submission; replace with real API call / action as needed
-        status.classList.remove('visually-hidden');
-        status.textContent = 'Sending...';
-        document.getElementById('submitBtn').setAttribute('disabled', 'disabled');
-
-        setTimeout(() => {
-          status.textContent = 'Message sent — thanks!';
-          status.classList.add('text-success');
-          document.getElementById('submitBtn').removeAttribute('disabled');
-          form.reset();
-          form.classList.remove('was-validated');
-          // hide status after a few seconds
-          setTimeout(() => {
-            status.classList.add('visually-hidden');
-            status.classList.remove('text-success');
-          }, 3000);
-        }, 900); // simulate network delay
-      });
     })();
   </script>
 </body>
