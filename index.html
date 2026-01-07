@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Comfortable, affordable guesthouse in Livingstone — close to town and Victoria Falls. Book rooms, get tour help and enjoy friendly 24/7 service." />
   <link rel="canonical" href="https://your-website.example/" />
-  <!-- Open Graph / Social -->
+
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Starlet Leisure Life Guesthouse | Livingstone" />
   <meta property="og:description" content="Comfortable, affordable guesthouse in Livingstone — close to town and Victoria Falls." />
@@ -14,22 +15,16 @@
   <meta property="og:url" content="https://your-website.example/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Performance hints -->
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
 
-  <!-- Tailwind CDN (for prototype/demo). For production consider building Tailwind into CSS) -->
   <script src="https://cdn.tailwindcss.com" defer></script>
-  <!-- Lucide icons (deferred) -->
   <script src="https://unpkg.com/lucide@latest" defer></script>
 
   <style>
     html { scroll-behavior: smooth; }
-    /* subtle focus rings for keyboard users */
     :focus { outline: none; }
     :focus-visible { outline: 3px solid rgba(250, 204, 21, 0.95); outline-offset: 2px; border-radius: 6px; }
-    /* Keep hero at least full viewport minus header height on small screens */
     .hero-min { min-height: calc(100vh - 72px); }
-    /* gentle transition for hero text overlay */
     .hero-overlay { transition: background-color .2s ease; }
   </style>
 
@@ -38,9 +33,7 @@
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Starlet Leisure Life Guesthouse",
-    "image": [
-      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
-    ],
+    "image": ["https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"],
     "telephone": "+260XXXXXXXXX",
     "address": {
       "@type": "PostalAddress",
@@ -54,203 +47,180 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800 antialiased">
-  <!-- Skip link -->
-  <a class="sr-only focus:not-sr-only absolute top-2 left-2 bg-amber-600 text-white px-3 py-2 rounded z-50" href="#main">Skip to main content</a>
+<a class="sr-only focus:not-sr-only absolute top-2 left-2 bg-amber-600 text-white px-3 py-2 rounded z-50" href="#main">Skip to main content</a>
 
-  <!-- NAVBAR -->
-  <header class="fixed w-full bg-white/90 backdrop-blur shadow z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-      <div class="flex items-center gap-4">
-        <a href="/" class="font-bold text-lg text-amber-600">Starlet Leisure Life</a>
-        <span class="hidden sm:inline text-sm text-gray-600">Guesthouse • Livingstone</span>
-      </div>
-
-      <nav aria-label="Primary" class="flex items-center gap-4">
-        <button id="mobileMenuButton" aria-controls="primaryNav" aria-expanded="false" class="md:hidden p-2 rounded hover:bg-gray-100 focus-visible:ring-amber-300">
-          <i data-lucide="menu" aria-hidden="true"></i>
-          <span class="sr-only">Open menu</span>
-        </button>
-
-        <ul id="primaryNav" class="hidden md:flex gap-6 items-center" role="menubar">
-          <li role="none"><a role="menuitem" href="#about" class="hover:underline">About</a></li>
-          <li role="none"><a role="menuitem" href="#rooms" class="hover:underline">Rooms</a></li>
-          <li role="none"><a role="menuitem" href="#amenities" class="hover:underline">Amenities</a></li>
-          <li role="none"><a role="menuitem" href="#gallery" class="hover:underline">Gallery</a></li>
-          <li role="none"><a role="menuitem" href="#contact" class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700">Book Now</a></li>
-        </ul>
-      </nav>
+<header class="fixed w-full bg-white/90 backdrop-blur shadow z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-4">
+      <a href="/" class="font-bold text-lg text-amber-600">Starlet Leisure Life</a>
+      <span class="hidden sm:inline text-sm text-gray-600">Guesthouse • Livingstone</span>
     </div>
 
-    <!-- MOBILE MENU -->
-    <div id="mobileMenu" class="hidden md:hidden border-t bg-white" aria-hidden="true">
-      <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col">
-        <a href="#about" class="block px-4 py-3">About</a>
-        <a href="#rooms" class="block px-4 py-3">Rooms</a>
-        <a href="#amenities" class="block px-4 py-3">Amenities</a>
-        <a href="#gallery" class="block px-4 py-3">Gallery</a>
-        <a href="#contact" class="block px-4 py-3 text-amber-600 font-semibold">Book Now</a>
-      </div>
+    <nav aria-label="Primary" class="flex items-center gap-4">
+      <button id="mobileMenuButton" aria-controls="primaryNav" aria-expanded="false" class="md:hidden p-2 rounded hover:bg-gray-100">
+        <i data-lucide="menu"></i><span class="sr-only">Open menu</span>
+      </button>
+
+      <ul id="primaryNav" class="hidden md:flex gap-6 items-center" role="menubar">
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#rooms" class="hover:underline">Rooms</a></li>
+        <li><a href="#amenities" class="hover:underline">Amenities</a></li>
+        <li><a href="#gallery" class="hover:underline">Gallery</a></li>
+        <li><a href="#contact" class="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700">Book Now</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div id="mobileMenu" class="hidden md:hidden border-t bg-white" aria-hidden="true">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col">
+      <a href="#about" class="block px-4 py-3">About</a>
+      <a href="#rooms" class="block px-4 py-3">Rooms</a>
+      <a href="#amenities" class="block px-4 py-3">Amenities</a>
+      <a href="#gallery" class="block px-4 py-3">Gallery</a>
+      <a href="#contact" class="block px-4 py-3 text-amber-600 font-semibold">Book Now</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main id="main" class="pt-20">
-    <!-- HERO -->
-    <section class="relative hero-min flex items-center justify-center text-white bg-black/5">
-      <!-- background image placed as <img> for better loading & accessibility control -->
-      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop&w=1600&h=1000"
-           alt="Comfortable guesthouse room with warm lighting"
-           class="absolute inset-0 w-full h-full object-cover"
-           style="filter:brightness(.5) saturate(.95)"
-           loading="eager" />
+<main id="main" class="pt-20">
 
-      <div class="relative z-10 bg-black/60 p-8 rounded-xl text-center max-w-xl mx-4 hero-overlay">
-        <h1 class="text-2xl md:text-4xl font-bold mb-3">Comfort Meets Convenience</h1>
-        <p class="mb-4 text-sm md:text-base leading-relaxed">
-          Affordable guesthouse in Livingstone<br />
-          <span class="inline-block mt-1">📍 30 Twafwane Street, Off Obote Avenue</span>
-        </p>
+<!-- HERO -->
+<section class="relative hero-min flex items-center justify-center text-white bg-black/5">
+  <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&auto=format&fit=crop&w=1600&h=1000"
+       alt="Comfortable guesthouse room"
+       class="absolute inset-0 w-full h-full object-cover"
+       style="filter:brightness(.5)" />
+  <div class="relative z-10 bg-black/60 p-8 rounded-xl text-center max-w-xl mx-4 hero-overlay">
+    <h1 class="text-2xl md:text-4xl font-bold mb-3">Comfort Meets Convenience</h1>
+    <p class="mb-4 text-sm md:text-base leading-relaxed">
+      Affordable guesthouse in Livingstone<br />
+      📍 30 Twafwane Street, Off Obote Avenue
+    </p>
 
-        <div class="flex flex-col sm:flex-row gap-3 justify-center">
-          <a href="#contact" class="bg-amber-600 px-6 py-3 rounded hover:bg-amber-700 focus-visible:ring-4 focus-visible:ring-amber-300">Book Your Stay</a>
-          <a href="tel:+260973104951" class="border border-white/40 px-6 py-3 rounded hover:bg-white hover:text-black focus-visible:ring-4 focus-visible:ring-white/50">Call Us</a>
-          <a href="https://wa.me/260973104951" class="border border-white/40 px-6 py-3 rounded hover:bg-green-600 focus-visible:ring-4 focus-visible:ring-white/30">WhatsApp</a>
-        </div>
-      </div>
-    </section>
-    <!-- LOCATION -->
-<section id="location" class="bg-white py-16">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-2xl font-bold text-amber-600 mb-4">Find Us</h2>
-
-    <!-- Clickable map link (replace the URL below with your real Google Maps link) -->
-    <a 
-      href="https://maps.app.goo.gl/D57PYRH4ub1CsHLu5?g_st=aw" 
-      target="_blank" 
-      rel="noopener" 
-      class="block mb-4 underline text-amber-600"
-    >
-      Open Location in Google Maps
-    </a>
-
-    <!-- Embedded map (optional — also replace the src link) -->
-    <div class="rounded-xl shadow overflow-hidden w-full h-72">
-      <iframe
-        src="https://maps.google.com/maps?q=Livingstone%20Zambia&t=&z=15&ie=UTF8&iwloc=&output=embed"
-        width="100%"
-        height="100%"
-        style="border:0;"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="#contact" class="bg-amber-600 px-6 py-3 rounded hover:bg-amber-700">Book Your Stay</a>
+      <a href="tel:+260973104951" class="border border-white/40 px-6 py-3 rounded hover:bg-white hover:text-black">Call Us</a>
+      <a href="https://wa.me/260973104951" class="border border-white/40 px-6 py-3 rounded hover:bg-green-600">WhatsApp</a>
     </div>
   </div>
 </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-bold text-amber-600 mb-4">About Us</h2>
-      <p class="leading-relaxed max-w-3xl">
-        Starlet Leisure Life offers clean, comfortable and peaceful
-        accommodation for travelers visiting Livingstone. Located near town
-        and a short drive from Victoria Falls, we are ideal for tourists,
-        business travelers and backpackers.
-      </p>
-    </section>
+<!-- LOCATION -->
+<section id="location" class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-amber-600 mb-4">Find Us</h2>
 
-    <!-- WHY US -->
-    <section class="bg-white py-16">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-        <article class="p-6 rounded-xl shadow" aria-labelledby="why-location">
-          <i data-lucide="map-pin" class="mb-3 text-amber-600" aria-hidden="true"></i>
-          <h3 id="why-location" class="font-semibold mb-2">Great Location</h3>
-          <p class="text-sm">Minutes from town & close to Victoria Falls.</p>
-        </article>
+    <a href="https://maps.app.goo.gl/D57PYRH4ub1CsHLu5?g_st=aw" target="_blank" rel="noopener" class="underline text-amber-600">
+      Open Location in Google Maps
+    </a>
 
-        <article class="p-6 rounded-xl shadow" aria-labelledby="why-rooms">
-          <i data-lucide="bed-double" class="mb-3 text-amber-600" aria-hidden="true"></i>
-          <h3 id="why-rooms" class="font-semibold mb-2">Comfortable Rooms</h3>
-          <p class="text-sm">Clean rooms with private bathrooms.</p>
-        </article>
+    <div class="rounded-xl shadow overflow-hidden w-full h-72 mt-4">
+      <iframe src="https://maps.google.com/maps?q=Livingstone%20Zambia&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%" height="100%" style="border:0;" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
 
-        <article class="p-6 rounded-xl shadow" aria-labelledby="why-service">
-          <i data-lucide="users" class="mb-3 text-amber-600" aria-hidden="true"></i>
-          <h3 id="why-service" class="font-semibold mb-2">Friendly Service</h3>
-          <p class="text-sm">24/7 front desk and tour assistance.</p>
-        </article>
-      </div>
-    </section>
+<!-- ABOUT -->
+<section id="about" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-2xl font-bold text-amber-600 mb-4">About Us</h2>
+  <p class="max-w-3xl">
+    Starlet Leisure Life offers clean, comfortable and peaceful accommodation for travelers visiting Livingstone.
+  </p>
+</section>
 
-    <!-- ROOMS -->
-    <section id="rooms" class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-bold text-amber-600 mb-8">Rooms & Prices</h2>
+<!-- WHY US -->
+<section class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <article class="p-6 rounded-xl shadow">
+      <i data-lucide="map-pin" class="mb-3 text-amber-600"></i>
+      <h3 class="font-semibold mb-2">Great Location</h3>
+      <p class="text-sm">Minutes from town & Victoria Falls.</p>
+    </article>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-xl shadow p-6">
-          <h3 class="font-semibold mb-2">Standard Room</h3>
-          <p class="text-sm mb-3">Private bathroom </p>
-          <span class="font-bold text-amber-600">ZMW 350/night and ZMW 400/night+breakfast </span>
-        </div>
+    <article class="p-6 rounded-xl shadow">
+      <i data-lucide="bed-double" class="mb-3 text-amber-600"></i>
+      <h3 class="font-semibold mb-2">Comfortable Rooms</h3>
+      <p class="text-sm">Clean rooms with private bathrooms.</p>
+    </article>
 
-        <div class="bg-white rounded-xl shadow p-6">
-          <h3 class="font-semibold mb-2">Double Room</h3>
-          <p class="text-sm mb-3">Ideal for couples • Spacious</p>
-          <span class="font-bold text-amber-600">From ZMW 450/ night</span>
-        </div>
-      </div>
-    </section>
+    <article class="p-6 rounded-xl shadow">
+      <i data-lucide="users" class="mb-3 text-amber-600"></i>
+      <h3 class="font-semibold mb-2">Friendly Service</h3>
+      <p class="text-sm">24/7 front desk and tour assistance.</p>
+    </article>
+  </div>
+</section>
 
-    <!-- AMENITIES -->
-    <section id="amenities" class="bg-white py-16">
-      <div class="max-w-7xl mx-auto px-6">
-        <h2 class="text-2xl font-bold text-amber-600 mb-6">Amenities</h2>
-        <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-          <li>✔ Free Wi-Fi</li>
-          <li>✔ Free Parking</li>
-          <li>✔ Airport Shuttle</li>
-          <li>✔ Breakfast Included</li>
-          <li>✔ Tour Desk</li>
-          <li>✔ 24-Hour Reception</li>
-          <li>✔ Secure Premises</li>
-        </ul>
-      </div>
-    </section>
+<!-- ROOMS -->
+<section id="rooms" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-2xl font-bold text-amber-600 mb-8">Rooms & Prices</h2>
 
-    <!-- GALLERY -->
-    <section id="gallery" class="max-w-7xl mx-auto px-6 py-16">
-      <h2 class="text-2xl font-bold text-amber-600 mb-6">Gallery</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://i.postimg.cc/CLpMj5gF/2025_12_14.jpg" alt="Cozy seating area at the guesthouse" loading="lazy">
-        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://i.postimg.cc/CLChJ0hK/356107371.webp" alt="Well appointed room with bed" loading="lazy">
-        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://i.postimg.cc/150mMSmX/362897192.webp" alt="Garden and outdoor seating" loading="lazy">
-        <img class="rounded-xl shadow hover:scale-105 transition-transform" src="https://i.postimg.cc/9FPm12mH/353795586.webp" alt="Dining area" loading="lazy">
-      </div>
-    </section>
-    
-    <!-- TESTIMONIALS -->
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-xl shadow p-6">
+      <h3 class="font-semibold mb-2">Standard Room</h3>
+      <p class="text-sm mb-3">Private bathroom</p>
+      <span class="font-bold text-amber-600">ZMW 350/night or ZMW 400/night + breakfast</span>
+    </div>
+
+    <div class="bg-white rounded-xl shadow p-6">
+      <h3 class="font-semibold mb-2">Double Room</h3>
+      <p class="text-sm mb-3">Ideal for couples • Spacious</p>
+      <span class="font-bold text-amber-600">From ZMW 450/night</span>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section id="amenities" class="bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-2xl font-bold text-amber-600 mb-6">Amenities</h2>
+    <ul class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <li>✔ Free Wi-Fi</li>
+      <li>✔ Free Parking</li>
+      <li>✔ Airport Shuttle</li>
+      <li>✔ Breakfast Included</li>
+      <li>✔ Tour Desk</li>
+      <li>✔ 24-Hour Reception</li>
+      <li>✔ Secure Premises</li>
+    </ul>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-2xl font-bold text-amber-600 mb-6">Gallery</h2>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <img class="rounded-xl shadow" src="https://i.postimg.cc/CLpMj5gF/2025_12_14.jpg" alt="">
+    <img class="rounded-xl shadow" src="https://i.postimg.cc/CLChJ0hK/356107371.webp" alt="">
+    <img class="rounded-xl shadow" src="https://i.postimg.cc/150mMSmX/362897192.webp" alt="">
+    <img class="rounded-xl shadow" src="https://i.postimg.cc/9FPm12mH/353795586.webp" alt="">
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
 <section id="testimonials" class="bg-gray-50 py-16">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-2xl font-bold text-amber-600 mb-8">What Our Guests Say</h2>
 
     <div class="grid md:grid-cols-3 gap-6">
-      <!-- Card 1 -->
       <article class="bg-white p-6 rounded-xl shadow">
         <p class="text-sm leading-relaxed mb-4">
-          "The accommodations in Starlet are both immaculate and comfortable and are offered at budget friendly rates. The location is excellent and the friendly staff will be more than happy to plan and coordinate excursions for all ages. I truly appreciated my stay and would encourage all to enjoy the Starlet experience."
+          "The accommodations in Starlet are immaculate and comfortable and offered at budget friendly rates..."
+        </p>
         <div class="font-semibold text-sm">Shlomo Muskat</div>
       </article>
 
-      <!-- Card 2 -->
       <article class="bg-white p-6 rounded-xl shadow">
         <p class="text-sm leading-relaxed mb-4">
-          "It is an affordable place to stay with a homely touch with breakfast served. The owners are friendly and helpful. The place is walking distance to town and the Mukuni Cultural market."
+          "Affordable place with a homely touch. Owners are friendly and helpful."
         </p>
         <div class="font-semibold text-sm">— Gabriel Konayuma</div>
       </article>
 
-      <!-- Card 3 -->
       <article class="bg-white p-6 rounded-xl shadow">
         <p class="text-sm leading-relaxed mb-4">
-          “Felt safe, comfortable and welcomed. I will definitely come back on my next trip.”
+          “Felt safe, comfortable and welcomed.”
         </p>
         <div class="font-semibold text-sm">— Brian N.</div>
       </article>
@@ -258,133 +228,107 @@
   </div>
 </section>
 
-    <!-- CONTACT / BOOKING -->
-   <script>
-const bookingForm = document.getElementById('bookingForm');
-const bookingStatus = document.getElementById('bookingStatus');
+<!-- CONTACT / BOOKING -->
+<section id="contact" class="max-w-7xl mx-auto px-6 py-16">
+  <h2 class="text-2xl font-bold text-amber-600 mb-6">Book Your Stay</h2>
 
-bookingForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  bookingStatus.classList.remove('sr-only');
-  bookingStatus.textContent = 'Submitting...';
+  <form id="bookingForm" class="grid md:grid-cols-2 gap-4 bg-white p-6 rounded-xl shadow">
+    <input id="fullName" name="fullName" class="border p-2 rounded" placeholder="Full Name" required>
+    <input id="contact" name="contact" class="border p-2 rounded" placeholder="Phone or Email" required>
+    <input id="checkin" name="checkin" type="date" class="border p-2 rounded" required>
+    <input id="checkout" name="checkout" type="date" class="border p-2 rounded" required>
 
-  const data = {
-    fullName: bookingForm.fullName.value,
-    contact: bookingForm.contact.value,
-    checkin: bookingForm.checkin.value,
-    checkout: bookingForm.checkout.value,
-    roomType: bookingForm.roomType.value
-  };
+    <select id="roomType" name="roomType" class="border p-2 rounded md:col-span-2">
+      <option value="Standard">Standard Room</option>
+      <option value="Double">Double Room</option>
+    </select>
 
-  try {
-    await fetch("PASTE_YOUR_WEB_APP_URL_HERE", {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data)
-    });
+    <button class="bg-amber-600 text-white px-4 py-2 rounded md:col-span-2 hover:bg-amber-700">
+      Submit Booking
+    </button>
 
-    bookingStatus.textContent =
-      "Thank you! Your booking was received — we’ll contact you shortly.";
-    bookingForm.reset();
-  } catch (err) {
-    bookingStatus.textContent =
-      "Something went wrong — please try again or call us.";
-  }
-});
-</script>
-    </main>
+    <div id="bookingStatus" class="sr-only md:col-span-2 text-sm mt-2"></div>
+  </form>
+</section>
 
-  <!-- FOOTER -->
-  <footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
-    © <span id="year"></span> Starlet Leisure Life Guesthouse – Livingstone, Zambia
-  </footer>
+</main>
 
-  <script>
-    // Wait for icons to be available
-    window.addEventListener('load', () => {
-      if (window.lucide && typeof lucide.createIcons === 'function') {
-        lucide.createIcons();
-      }
-      // Update copyright year
-      document.getElementById('year').textContent = new Date().getFullYear();
-    });
+<footer class="bg-gray-900 text-gray-300 text-center py-6 text-sm">
+  © <span id="year"></span> Starlet Leisure Life Guesthouse – Livingstone, Zambia
+</footer>
 
-    // Mobile menu toggle with aria
-    const mobileMenuButton = document.getElementById('mobileMenuButton');
-    const mobileMenu = document.getElementById('mobileMenu');
-    mobileMenuButton && mobileMenuButton.addEventListener('click', () => {
-      const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
-      mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
-      mobileMenu.hidden = expanded;
-      mobileMenu.classList.toggle('hidden');
-      mobileMenu.setAttribute('aria-hidden', String(expanded));
-    });
+<script>
+  window.addEventListener('load', () => {
+    lucide?.createIcons?.();
+    document.getElementById('year').textContent = new Date().getFullYear();
+  });
 
-    // Booking form handling with basic validation and accessible feedback
- const bookingForm = document.getElementById('bookingForm');
-    const bookingStatus = document.getElementById('bookingStatus');
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenuButton?.addEventListener('click', () => {
+    const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+    mobileMenuButton.setAttribute('aria-expanded', !expanded);
+    mobileMenu.classList.toggle('hidden');
+  });
 
-    function formatDateISO(input) {
-      // returns YYYY-MM-DD or null
-      return input ? input : null;
+  /* ---- BOOKING FORM (clean fixed version) ---- */
+  const bookingForm = document.getElementById('bookingForm');
+  const bookingStatus = document.getElementById('bookingStatus');
+
+  bookingForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    bookingStatus.classList.remove('sr-only');
+    bookingStatus.textContent = 'Submitting...';
+
+    const data = {
+      fullName: bookingForm.fullName.value.trim(),
+      contact: bookingForm.contact.value.trim(),
+      checkin: bookingForm.checkin.value,
+      checkout: bookingForm.checkout.value,
+      roomType: bookingForm.roomType.value
+    };
+
+    if (!data.fullName || !data.contact || !data.checkin || !data.checkout) {
+      bookingStatus.textContent = 'Please fill in all required fields.';
+      return;
     }
 
-    bookingForm && bookingForm.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      bookingStatus.classList.remove('sr-only');
-      bookingStatus.textContent = '';
+    if (new Date(data.checkout) <= new Date(data.checkin)) {
+      bookingStatus.textContent = 'Check-out must be after check-in.';
+      return;
+    }
 
-      const fullName = document.getElementById('fullName').value.trim();
-      const contact = document.getElementById('contact').value.trim();
-      const checkin = document.getElementById('checkin').value;
-      const checkout = document.getElementById('checkout').value;
-      const roomType = document.getElementById('roomType').value;
+    try {
+      await fetch("https://script.google.com/macros/s/AKfycbz_I8c7txumBFmLY795cUEIRp4MdlszWtCqplOY-YI70yg-3fqKWdwJC8V5XrvETpcNtw/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
 
-      // simple validations
-      if (!fullName || !contact || !checkin || !checkout) {
-        bookingStatus.textContent = 'Please fill in all required fields.';
-        bookingStatus.classList.remove('text-green-600');
-        return;
-      }
+      bookingStatus.textContent =
+        "Thank you! Your booking was received — we’ll contact you shortly.";
+      bookingForm.reset();
+    } catch {
+      bookingStatus.textContent =
+        "Something went wrong — please try again or call us.";
+    }
+  });
 
-      if (new Date(checkout) <= new Date(checkin)) {
-        bookingStatus.textContent = 'Check-out must be after check-in.';
-        return;
-      }
+  (function initDatePickers() {
+    const checkin = document.getElementById('checkin');
+    const checkout = document.getElementById('checkout');
+    const today = new Date().toISOString().split('T')[0];
+    checkin.min = today;
+    checkout.min = today;
 
-      // Demo: show a success message and reset form. Replace with real send (fetch) in production.
-      bookingStatus.textContent = 'Submitting your booking...';
-      try {
-        await new Promise(r => setTimeout(r, 700)); // simulate async send
-        bookingStatus.textContent = 'Thank you! Your booking request has been submitted. We will contact you shortly.';
-        bookingForm.reset();
-      } catch (err) {
-        bookingStatus.textContent = 'There was a problem submitting your booking. Please try again or call us.';
-      }
+    checkin.addEventListener('change', () => {
+      const d = new Date(checkin.value);
+      d.setDate(d.getDate() + 1);
+      checkout.min = d.toISOString().split('T')[0];
     });
+  })();
+</script>
 
-    // Small enhancement: set min date on checkin to today, and checkout min to tomorrow when checkin selected.
-    (function initDatePickers(){
-      const checkinEl = document.getElementById('checkin');
-      const checkoutEl = document.getElementById('checkout');
-      const today = new Date().toISOString().split('T')[0];
-      if (checkinEl) checkinEl.setAttribute('min', today);
-      if (checkoutEl) checkoutEl.setAttribute('min', today);
-
-      if (checkinEl && checkoutEl) {
-        checkinEl.addEventListener('change', () => {
-          const nextDay = new Date(checkinEl.value);
-          if (!isNaN(nextDay)) {
-            nextDay.setDate(nextDay.getDate() + 1);
-            checkoutEl.min = nextDay.toISOString().split('T')[0];
-            if (new Date(checkoutEl.value) <= new Date(checkinEl.value)) {
-              checkoutEl.value = '';
-            }
-          }
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
